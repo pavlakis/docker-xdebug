@@ -1,6 +1,6 @@
-FROM php:7.2.6-cli
+FROM php:7.2.11-cli
 
-RUN pecl install xdebug-2.6.0
+RUN pecl install xdebug-2.6.1
 
 RUN rm -rf /tmp/pear/
 
