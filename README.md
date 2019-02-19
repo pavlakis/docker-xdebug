@@ -2,17 +2,23 @@
 
 Docker images for:
 
-* PHP 7.3 using Xdebug 2.7.0beta1
+* PHP 7.3 using Xdebug 2.7.0RC2
 * PHP 7.2 using Xdebug 2.6.1
 * PHP 5.6 using Xdebug 2.4.1
 
 
-Images are available under:
+Available images:
 
-* pavlakis/xdebug:2.7.0beta1
+* pavlakis/xdebug:2.7.0RC2
 * pavlakis/xdebug:2.6.1
 * pavlakis/xdebug:2.4.1
 
+
+Each version is installed in a different folder:
+
+* PHP 7.3 -> `/usr/local/lib/php/extensions/no-debug-non-zts-20180731/`
+* PHP 7.2 -> `/usr/local/lib/php/extensions/no-debug-non-zts-20170718/`
+* PHP 5.6 -> `/usr/local/lib/php/extensions/no-debug-non-zts-20131226/`
 
 ## Usage
 
@@ -36,7 +42,7 @@ COPY --from=xdebug /usr/local/lib/php/extensions/no-debug-non-zts-20170718/xdebu
 ; Enable xdebug extension module
 zend_extension=xdebug.so
 
-;xdebug.profiler_enable = 0
+;xdebug.profiler_enable=0
 xdebug.remote_enable=1
 xdebug.remote_port=9000
 xdebug.remote_autostart=1
