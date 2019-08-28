@@ -2,6 +2,7 @@
 
 Docker images for:
 
+* PHP 7.4 using Xdebug 2.8.0beta2
 * PHP 7.3 using Xdebug 2.7.0
 * PHP 7.2 using Xdebug 2.6.1
 * PHP 5.6 using Xdebug 2.4.1
@@ -9,6 +10,7 @@ Docker images for:
 
 Available images:
 
+* pavlakis/xdebug:2.8.0beta2
 * pavlakis/xdebug:2.7.0
 * pavlakis/xdebug:2.6.1
 * pavlakis/xdebug:2.4.1
@@ -16,6 +18,7 @@ Available images:
 
 Each version is installed in a different folder:
 
+* PHP 7.4 -> `/usr/local/lib/php/extensions/no-debug-non-zts-20190529/`
 * PHP 7.3 -> `/usr/local/lib/php/extensions/no-debug-non-zts-20180731/`
 * PHP 7.2 -> `/usr/local/lib/php/extensions/no-debug-non-zts-20170718/`
 * PHP 5.6 -> `/usr/local/lib/php/extensions/no-debug-non-zts-20131226/`
