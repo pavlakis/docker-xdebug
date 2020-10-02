@@ -2,7 +2,7 @@
 
 Docker images for:
 
-* PHP 7.4 using Xdebug 2.9.5
+* PHP 7.4 using Xdebug 2.9.8
 * PHP 7.3 using Xdebug 2.7.0
 * PHP 7.2 using Xdebug 2.6.1
 * PHP 5.6 using Xdebug 2.4.1
