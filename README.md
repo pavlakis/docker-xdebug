@@ -2,6 +2,7 @@
 
 Docker images for:
 
+* PHP 8.0 using Xdebug 3.0.3
 * PHP 7.4 using Xdebug 2.9.8
 * PHP 7.3 using Xdebug 2.7.0
 * PHP 7.2 using Xdebug 2.6.1
@@ -10,6 +11,8 @@ Docker images for:
 
 Available images:
 
+* pavlakis/xdebug:3.0.3
+* pavlakis/xdebug:2.9.8
 * pavlakis/xdebug:2.9.1
 * pavlakis/xdebug:2.8.1
 * pavlakis/xdebug:2.7.0
