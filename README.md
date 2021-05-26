@@ -22,6 +22,7 @@ Available images:
 
 Each version is installed in a different folder:
 
+* PHP 8.0 -> `/usr/local/lib/php/extensions/no-debug-non-zts-20200930/`
 * PHP 7.4 -> `/usr/local/lib/php/extensions/no-debug-non-zts-20190902/`
 * PHP 7.3 -> `/usr/local/lib/php/extensions/no-debug-non-zts-20180731/`
 * PHP 7.2 -> `/usr/local/lib/php/extensions/no-debug-non-zts-20170718/`
@@ -29,7 +30,57 @@ Each version is installed in a different folder:
 
 ## Usage
 
-Example usage with PHP 7.3
+### Example usage for Xdebug 3.0.* with PHP 8.0 
+
+> Dockerfile
+
+```
+FROM pavlakis/xdebug:3.0.3 AS xdebug
+FROM pavlakis/php-apache-common:8.0.3
+
+COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+COPY apache.conf /etc/apache2/sites-available/000-default.conf
+
+COPY --from=xdebug /usr/local/lib/php/extensions/no-debug-non-zts-20200930/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20200930/xdebug.so
+
+```
+
+> xdebug.ini
+
+```
+; Enable xdebug extension module
+zend_extension=xdebug.so
+
+zend_extension=xdebug.so
+
+xdebug.mode=coverage,develop,debug
+xdebug.start_with_request=yes
+```
+
+> apache.conf (example)
+
+```
+<VirtualHost *:80>
+   ServerAdmin webmaster@localhost
+   DocumentRoot /var/www/html/public
+
+   <Directory /var/www/html/public>
+       AllowOverride None
+       Order Allow,Deny
+       Allow from All
+
+       FallbackResource /index.php
+   </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    LogLevel warn
+
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+```
+
+### Example usage for Xdebug 2.* with PHP 7.3
 
 > Dockerfile
 
